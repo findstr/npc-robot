@@ -1,0 +1,13 @@
+version: "3.1"
+nlu:
+- intent: mood_great
+  examples: |
+    - 太好了
+    - 感觉不错
+    - 非常好
+- intent: mood_unhappy
+  examples: |
+    - 不开心
+    - 感到沮丧
+    - 不高兴
+    - 不太好

@@ -1,0 +1,19 @@
+version: "3.1"
+
+rules:
+  - rule: FAQ
+    steps:
+    - intent: faq
+    - action: utter_faq
+  - rule: activate leave form
+    steps:
+      - intent: leave
+      - action: leave_form
+      - active_loop: leave_form
+  - rule: submit form
+    condition:
+    - active_loop: leave_form
+    steps:
+      - action: leave_form
+      - active_loop: null
+      - action: action_leave

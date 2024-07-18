@@ -1,0 +1,14 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: leave
+  - action: leave_form
+  - active_loop: leave_form
+  - intent: faq
+  - action: utter_faq
+  - action: leave_form

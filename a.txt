@@ -1,0 +1,48 @@
+tion: utter_weapon_price
+
+- story: 购买兵器
+  steps:
+  - intent: buy_item
+  - action: utter_confirm_purchase
+  - action: action_sell_item
+
+- story: 询问盔甲
+  steps:
+  - intent: ask_about_armor
+  - action: utter_list_armor
+
+- story: 询问盔甲价格
+  steps:
+  - intent: ask_for_price
+  - action: utter_armor_price
+
+- story: 购买盔甲
+  steps:
+  - intent: buy_item
+  - action: utter_confirm_purchase
+  - action: action_sell_item
+
+- story: 打造武器
+  steps:
+  - intent: request_make
+  - action: action_sell_item
+
+- story: 告别
+  steps:
+  - intent: farewell
+  - action: utter_farewell
+stories:
+- story: 拜访铁匠
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: 询问兵器
+  steps:
+  - intent: ask_about_weapons
+  - action: utter_list_weapons
+
+- story: 询问兵器价格
+  steps:
+  - intent: ask_for_price
+  - ac

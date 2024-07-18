@@ -1,0 +1,76 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - leave
+  - info_begin_time
+  - info_duration
+  - info_leave_type
+entities:
+  - begin_time
+  - duration
+  - leave_type
+slots:
+  begin_time:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: begin_time
+  duration:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: duration
+  leave_type:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: leave_type
+responses:
+  utter_default:
+  - text: "对不起，我没有明白您在说什么，请换个说法重试"
+  utter_greet:
+  - text: "你好，我是一个请假机器人"
+  utter_goodbye:
+  - text: "再见，感谢您的使用"
+  utter_faq/how_to_leave:
+  - text: "我可以帮您请假呦，您可以这样讲，帮我请一天假"
+  utter_faq/leave_type:
+  - text: "您可以请：事假、病假、年假、婚假、育儿假、调休假、呱呱假"
+  utter_faq/leave_flow:
+  - text: "对不起，系统暂时不支持查询请假流程，请登录员工考勤系统查看审批进程哦，我们会尽快完善功能"
+  utter_ask_begin_time:
+  - text: "请输入请假开始时间"
+  utter_ask_duration:
+  - text: "您要请多长时间"
+  utter_ask_leave_type:
+  - text: "请选择您要请假的类型"
+    buttons:
+    - title: "事假"
+      payload: '/info_leave_type{{"leave_type":"事假"}}'
+    - title: "病假"
+      payload: '/info_leave_type{{"leave_type":"病假"}}'
+    - title: "年假"
+      payload: '/info_leave_type{{"leave_type":"年假"}}'
+    - title: "婚假"
+      payload: '/info_leave_type{{"leave_type":"婚假"}}'
+    - title: "育儿假"
+      payload: '/info_leave_type{{"leave_type":"育儿假"}}'
+    - title: "调休假"
+      payload: '/info_leave_type{{"leave_type":"调休假"}}'
+    - title: "呱呱假"
+      payload: '/info_leave_type{{"leave_type":"呱呱假"}}'
+actions:
+  - action_leave
+forms:
+  leave_form:
+    required_slots:
+      - begin_time
+      - duration
+      - leave_type
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
