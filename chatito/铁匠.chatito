@@ -1,0 +1,17 @@
+import ./common.chatito
+
+%[request_make]('training':'100')
+    ~[greet?] ~[please?] ~[make] @[number] ~[unit] @[item] ~[mood?]
+
+~[make]
+    锻造
+    打
+    做
+    制作
+@[item]
+    钉耙
+    宝剑
+    雪饮狂刀
+    倚天剑
+    屠龙刀
+    流星镖

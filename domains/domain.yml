@@ -1,0 +1,18 @@
+version: "3.1"
+actions:
+- utter_greet
+- utter_recommend_weapons
+- utter_farewell
+- utter_whoareyou
+- utter_confirm_make
+- action_default_fallback
+entities:
+- number
+- weapon
+intents:
+- whatyoucando
+- ask_about_weapons
+- request_make
+- farewell
+- whoareyou
+- greet
